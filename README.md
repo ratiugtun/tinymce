@@ -11,7 +11,7 @@ $ meteor add teamon:tinymce
 ```
 tinymce.init({
   selector: 'textarea',
-  skin_url: '/packages/teamon_tinymce/skins/lightgray',
+  skin_url: '/packages/ratiugtun_tinymce/skins/lightgray',
 });
 ```
 
@@ -19,7 +19,7 @@ tinymce.init({
 ```
 tinymce.init({
   selector: 'div.tinymce',
-  skin_url: '/packages/teamon_tinymce/skins/lightgray',
+  skin_url: '/packages/ratiugtun_tinymce/skins/lightgray',
   theme: 'inlite',
   inline: true
 });

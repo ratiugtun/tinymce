@@ -1,12 +1,13 @@
 Package.describe({
-    name: 'teamon:tinymce',
-    version: '4.5.4',
+    name: 'ratiugtun:tinymce',
+    version: '4.9.11',
     summary: 'TinyMCE editor',
-    git: 'https://github.com/teamOnHQ/tinymce.git',
+    git: 'https://github.com/ratiugtun/tinymce',
 });
 
 Package.onUse(function(api) {
     api.versionsFrom('1.2.1');
+    api.use('ecmascript');
 
     // client files
     api.addFiles([
@@ -58,6 +59,7 @@ Package.onUse(function(api) {
         'plugins/tabfocus/plugin.min.js',
         'plugins/textcolor/plugin.min.js',
         'plugins/visualblocks/plugin.min.js',
+        'plugins/help/plugin.min.js',
 
         // themes
         'themes/modern/theme.min.js',
