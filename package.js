@@ -81,5 +81,9 @@ Package.onUse(function(api) {
         'skins/ui/tinymce-5-dark/skin.shadowdom.min.css',
 
         'icons/default/icons.js',
+
+        //languages
+        'langs/th_TH.js',
+        
     ], 'client');
 });
