@@ -12,13 +12,30 @@ $ meteor add ratiugtun:tinymce
 ```
 
 ### Initialization
-**Caution:** Default `base_url` must be defined on init. As the Meteor will put each Atmosphere packages in the `/packages`. Therefore, the TinyMCE will link to its components base on its path which should be in `/packages/ratiugtun_tinymce` but instead only `/packages`(as it the path that Meteor put the Atmosphere package in and cause the TinyMCE to not find other components like skin.js or icon.js). If you want to use a custom skin, you can simply modify it.
-```
+#### Minify version
+This package used the minify version as default. You should only add `<script type="text/javascript" src="/packages/ratiugtun_tinymce/tinymce.min.js"></script>` in `<head>` and set TinyMCE options as below.
+```javascript
 tinymce.init({
   selector: 'textarea',
-  base_url: '/packages/ratiugtun_tinymce',
-  // skin_url: '/packages/ratiugtun_tinymce/skins/ui/oxide',
-  // icons_url: '/packages/ratiugtun_tinymce/icons/default/icons.js',
+  base_url: '/packages/ratiugtun_tinymce/',
+  suffix: '.min',
+  icons_url: '/packages/ratiugtun_tinymce/icons/default/icons.min.js',
+  icons: 'default',
+});
+```
+
+#### Unminify version
+**Caution: This version may be buggy because the bundler may not fully compatible to some new ECMA features used in TinyMCE.** 
+If you prefer to use unminify version, you have to modify the `packages.js` to bundle the unminify version. The file is located in the meteor packages directory.
+
+Since, the bundler will bundle the script and add it automatically. So, you have not need to add `<script>` to `<head>`. But if you would like to access it, you can access it in `yourdomain.com/packages`.
+
+Filnally, you may have to set the options as the below example.
+```javascript
+tinymce.init({
+  selector: 'textarea',
+  base_url: '/packages/ratiugtun_tinymce/',
+  icons: 'default',
 });
 ```
 
@@ -26,7 +43,7 @@ tinymce.init({
 ```
 tinymce.init({
   selector: 'div.tinymce',
-  base_url: '/packages/ratiugtun_tinymce',
+  base_url: '/packages/ratiugtun_tinymce/',
   icons: 'default',
   //skin_url: '/packages/ratiugtun_tinymce/skins/ui/oxide',
   //icons_url: '/packages/ratiugtun_tinymce/icons/default/icons.js',
